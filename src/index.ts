@@ -1,5 +1,35 @@
-import createConfigType from './lib/createConfig'
-export * from './lib/getters'
-export * from './lib/types.t'
+import createConfig from "./lib/createConfig";
+import {env, or, runtime, get} from './lib/getters'
+import type {
+  Initializer,
+  ObjectLiteral,
+  GetterValue,
+  Getter,
+  GetterType,
+  ApiGetter,
+  Manipulator,
+  RuntimeManipulator,
+  Definition,
+  BaseDefinition
+} from './lib/types.t'
 
-export const createConfig = createConfigType
+export {
+  createConfig,
+  env,
+  or,
+  runtime,
+  get
+}
+
+export type {
+  Initializer,
+  ObjectLiteral,
+  GetterValue,
+  Getter,
+  GetterType,
+  ApiGetter,
+  Manipulator,
+  RuntimeManipulator,
+  Definition,
+  BaseDefinition
+}

@@ -10,5 +10,5 @@
     "semi": ["error", "never"],
     "@typescript-eslint/no-explicit-any": 0
   },
-  "ignore": ["dist"]
+  "ignorePatterns": ["dist"]
 }
