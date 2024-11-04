@@ -1,6 +1,6 @@
 {
   "name": "conffi",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A schema-based configuration loader",
   "type": "module",
   "main": "dist/index.cjs",
