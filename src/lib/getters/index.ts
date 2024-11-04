@@ -56,18 +56,37 @@ const setApi = <T extends Getter<any>>(callback: T): ApiGetter<T> => {
   return callback as unknown as ApiGetter<T>
 }
 
+/**
+ * Gets an environment variable.
+ * @param name - The name of the environment variable
+ * @returns A getter function
+ */
 export const env = (name: string): ApiGetter<Getter<string>> => {
   return setApi(() => getEnvVar(name))
 }
 
+/**
+ * Gets a runtime variable.
+ * @returns A getter function
+ */
 export const runtime = <T>(): ApiGetter<Getter<T>> => {
   return setApi(getRuntimeVar())
 }
 
+/**
+ * Gets the first of multiple getters.
+ * @param getters - The getters to get the first of
+ * @returns A getter function
+ */
 export const or = <T extends Getter<any>>(...getters: T[]): ApiGetter<Getter<any>> => {
   return setApi(getFirstOf(...getters))
 }
 
-export const get = <T extends () => GetterValue<any>>(callback: T): ApiGetter<Getter<ReturnType<T>>> => {
+/**
+ * Gets a value from a callback.
+ * @param callback - The callback to get the value from
+ * @returns A getter function
+ */
+export const get = <T extends () => GetterValue<any>>(callback: T): ApiGetter<Getter<Awaited<ReturnType<T>>>> => {
   return setApi(() => callback())
 }

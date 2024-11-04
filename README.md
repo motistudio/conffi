@@ -108,7 +108,7 @@ By leveraging getters and manipulators, you can ensure your configuration values
 ```typescript
 import {createConfig} from 'conffi'
 
-const createMainConfig(({env, runtime, or, get}) => ({
+const createMainConfig = createConfig(({env, runtime, or, get}) => ({
   text: env('textual').string(),
   number: env('numeric').number(), // translates to an integer
   bool: env('boolean').boolean(),
